@@ -1,9 +1,9 @@
 WKRPT
 =====
 
-WKRPT is a LaTeX template for writing Waterloo Software Engineering work term reports. It is based on [TheKevJames/wkrpt][1]; see the notes for version 1.0 in [CHANGES](CHANGES) for details.
+WKRPT is a LaTeX template for work term reports based on [TheKevJames/wkrpt][1]. It's meant for Software Engineering students at the University of Waterloo.
 
-This template follows the format of the sample work report [Design Decisions for Implementing Backside Video in the SomeProduct][2] found on the [Work term reports guidelines][3] page.
+I have closely followed the [sample work report][2] found on the [Work term reports guidelines][3] page.
 
 [1]: https://github.com/TheKevJames/wkrpt
 [2]: https://uwaterloo.ca/software-engineering/sites/ca.software-engineering/files/uploads/files/wkrptsample2.pdf
@@ -12,7 +12,7 @@ This template follows the format of the sample work report [Design Decisions for
 Usage
 =====
 
-I recommend writing the work report using [ShareLaTeX][4]. Copy this read-only project into your own account and then start editing:
+I recommend using [ShareLaTeX][4]. Copy this project into your own account and then start editing:
 
 https://www.sharelatex.com/project/56ec6e084b34d2d1396daf1b
 
