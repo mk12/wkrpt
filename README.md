@@ -1,37 +1,26 @@
-wkrpt
+WKRPT
 =====
 
-wkrpt is a LaTeX template for writing University of Waterloo Workterm Reports (for Software Engineers, at least!). It follows the guidelines found [here](https://uwaterloo.ca/software-engineering/current-undergraduate-students/policies-procedures-guidelines/work-term-report-guidelines). Latest term for which this template is verified to work: Fall 2015.
+WKRPT is a LaTeX template for writing Waterloo Software Engineering work term reports. It is based on [TheKevJames/wkrpt][1]; see the notes for version 1.0 in [CHANGES](CHANGES) for details.
+
+This template follows the format of the sample work report [Design Decisions for Implementing Backside Video in the SomeProduct][2] found on the [Work term reports guidelines][3] page.
+
+[1]: https://github.com/TheKevJames/wkrpt
+[2]: https://uwaterloo.ca/software-engineering/sites/ca.software-engineering/files/uploads/files/wkrptsample2.pdf
+[3]: https://uwaterloo.ca/software-engineering/current-undergraduate-students/policies-procedures-guidelines/work-term-report-guidelines#report%20format
 
 Usage
 =====
 
-    git clone https://github.com/TheKevJames/wkrpt.git
-    cd wkrpt
-    make
+I recommend writing the work report using [ShareLaTeX][4]. Copy this read-only project into your own account and then start editing:
 
-Write your report in wkrpt.tex and the Makefile will auto-generate your completed document.
+https://www.sharelatex.com/project/56ec6e084b34d2d1396daf1b
 
-If you don't have GNU Make, this project can also be built with any standard XeLaTeX + BibLaTeX build system. See the [Makefile](Makefile) for more information.
+If you'd rather use a local LaTeX installation, clone this repository and run `make`.
 
-LaTeX Dependencies
-==================
-
-If you find yourself unable to build, make sure you have the following latex packages installed (copied to $TEXMF/tex/). Missing LaTeX packages can be found on [CTAN](http://www.ctan.org/).
-
-    fontspec
-    geometry
-    graphicx
-    setspace
-    titlesec
-    tocloft
-    url
-
-You will also need the [IEEE BibTeX style package](http://ctan.cms.math.ca/tex-archive/macros/latex/contrib/IEEEtran/bibtex/IEEEtran.bst) installed in $TEXMF/bitex/bst/
-
-A guide for writing your `wkrpt.bib` file can be found [here](https://verbosus.com/bibtex-style-examples.html).
+[4]: https://www.sharelatex.com
 
 Contributing
 ============
 
-If you noticed any style requirements which were missed, submit a pull request!
+Contributions are welcome.
