@@ -1,5 +1,7 @@
+% Packages
+
 \usepackage{chngcntr}
-\usepackage{fontspec}
+\usepackage{tgtermes}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{indentfirst}
@@ -7,140 +9,171 @@
 \usepackage{titlesec}
 \usepackage{tocloft}
 \usepackage{url}
+\usepackage{scrextend}
 
-\counterwithin{figure}{section}
-\counterwithin{table}{section}
+% Typography
 
 \onehalfspacing
 \pagenumbering{roman}
 \addtolength{\parskip}{\baselineskip}
 \setlength{\parindent}{12pt}
 \setlength{\parskip}{1em}
-\setmainfont[Ligatures=TeX]{Times New Roman}
+
+% Format
 
 \titleformat*{\section}{\fontsize{16}{18}\bfseries}
 \titleformat*{\subsection}{\fontsize{14}{16}\bfseries}
 \titleformat*{\subsubsection}{\fontsize{12}{14}\bfseries}
-
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
 \bibliographystyle{IEEEtran}
 
+% Information
 
-\renewcommand{\title}[3] {
+\newcommand*{\thetitle}{\makeatletter\@title\makeatother}
+\newcommand*{\theauthor}{\makeatletter\@author\makeatother}
+\newcommand*{\thedate}{\makeatletter\@date\makeatother}
+
+\newcommand*{\studentid}[1]{\newcommand*{\thestudentid}{#1}}
+\newcommand*{\userid}[1]{\newcommand*{\theuserid}{#1}}
+\newcommand*{\workterm}[1]{\newcommand*{\theworkterm}{#1}}
+\newcommand*{\company}[1]{\newcommand*{\thecompany}{#1}}
+\newcommand*{\companydepartment}[1]{\newcommand*{\thecompanydepartment}{#1}}
+\newcommand*{\companylocation}[1]{\newcommand*{\thecompanylocation}{#1}}
+\newcommand*{\addresslineone}[1]{\newcommand*{\theaddresslineone}{#1}}
+\newcommand*{\addresslinetwo}[1]{\newcommand*{\theaddresslinetwo}{#1}}
+
+% Title page
+
+\renewcommand*{\titlepage}[1] {
 	\begin{singlespace}
 	\begin{center}
-	{\bf \MakeUppercase {University of Waterloo}} \\
-	{\bf Faculty of Engineering}
+	{\bf \MakeUppercase{University of Waterloo}}\\
+	{\bf Software Engineering}
 
 	\vfill
 
-	{
-		\large
-		\textsc{\bf {#1}}
-	}
+	{\large\textsc{\bf\thetitle}}
 
 	\vfill
 
-	#2
+	#1\\
+	\thecompany\\
+	\thecompanylocation
 
 	\vfill
 
-	#3
+	{\bf Prepared by}\\
+	\vspace{0.5\baselineskip}
+	\theauthor\\
+	Student ID: \thestudentid\\
+	User ID: \theuserid\\
+	\theworkterm{} Software Engineering\\
+	\thedate
 
 	\end{center}
 	\end{singlespace}
+
+	\vspace{0.75in}
 
 	\thispagestyle{empty}
 	\newpage
 }
 
-\newcommand{\letter}[9] {
+% Cover letter
+
+\newcommand{\letter}[1] {
 	\begin{singlespace}
+	\setlength{\parindent}{0pt}
 
-	#5
+	\begin{addmargin}[4in]{0in}
+	\theauthor\\
+	\theaddresslineone\\
+	\theaddresslinetwo
 
-	\noindent
 	\today
+	\end{addmargin}
 
 	\noindent
 	Andrew Morton, Director\\
-	Software Engineering Program\\
+	Software Engineering\\
 	University of Waterloo\\
-	200 University Ave. West\\
-	Waterloo, Ontario. N2L 3G1
+	200 University Ave West\\
+	Waterloo, ON, N2L 3G1
 
 	\vfill
 
-	\noindent
-	Dear Andrew Morton:\\
+    Dear Sir:
 
-	This report, entitled ``#1'', was prepared during my #2 work term at #3, where I worked in the #4 department.\\
+	This report, entitled ``\thetitle{}'', was prepared during my \theworkterm{} work term at \thecompany{}, where I worked in the \thecompanydepartment{} department.
 
-	#6\\
-
-	#7\\
-
-	#8\\
+	#1
 
 	I hereby confirm that I have received no help, other than what is mentioned above, in writing this report. I also confirm this report has not been previously submitted for academic credit at this or any other academic institution.
 
 	\vfill
 
 	\noindent
-	Yours,\\
+	Sincerely,\\
 
 	\vfill
 
 	\noindent
 	\line(1,0){150}\\
-	#9\\
-
+	\theauthor\\
+	Student ID: \thestudentid
 	\end{singlespace}
 
 	\thispagestyle{empty}
 	\newpage
 }
 
-\newcommand{\tocsection}[1]{ 
-	\section*{#1}
-	\addcontentsline{toc}{section}{#1}
-}
+% Contents, figures, tables
 
-\renewcommand{\contentsname}{\begin{center}Table of Contents\end{center}}
-\newcommand{\toc} {
+\renewcommand*{\cftsecleader}{\bfseries\cftdotfill{\cftdotsep}}
+\renewcommand*{\cftfigpresnum}{Figure }
+\renewcommand*{\cftfignumwidth}{55pt}
+\renewcommand*{\cftfigaftersnum}{: }
+\renewcommand*{\cfttabpresnum}{Table }
+\renewcommand*{\cfttabnumwidth}{50pt}
+\renewcommand*{\cfttabaftersnum}{: }
+
+\renewcommand*{\contentsname}{\begin{center}Table of Contents\end{center}}
+\newcommand*{\toc} {
 	\tableofcontents
 	\addcontentsline{toc}{section}{Table of Contents}
-	\cleardoublepage
+	\newpage
 }
 
-\renewcommand{\listfigurename}{\begin{center}List of Figures\end{center}}
-\newcommand{\lof} {
+\renewcommand*{\listfigurename}{\begin{center}List of Figures\end{center}}
+\newcommand*{\lof} {
 	\listoffigures
 	\addcontentsline{toc}{section}{List of Figures}
 	\newpage
 }
 
-\renewcommand{\listtablename}{\begin{center}List of Tables\end{center}}
-\newcommand{\lot} {
+\renewcommand*{\listtablename}{\begin{center}List of Tables\end{center}}
+\newcommand*{\lot} {
 	\listoftables
 	\addcontentsline{toc}{section}{List of Tables}
 	\newpage
 }
 
-\renewcommand{\refname}{References}
+% Other sections
 
-\renewcommand{\appendix}[2]{
-	\setcounter{page}{1}
-	\renewcommand{\thepage}{A-#1.\arabic{page}}
-	\section*{Appendix #1 \- #2}
-	\addcontentsline{toc}{section}{#2}
+\newcommand*{\tocsection}[1]{ 
+	\section*{#1}
+	\addcontentsline{toc}{section}{#1}
 }
 
-\renewcommand{\cftsecleader}{\bfseries\cftdotfill{\cftdotsep}}
+\renewcommand*{\refname}{References}
+\newcommand*{\references}{
+    \addcontentsline{toc}{section}{\refname}
+    \bibliography{wkrpt}
+    \newpage
+}
 
-\renewcommand{\cftfigpresnum}{Figure }
-\renewcommand{\cftfignumwidth}{55pt}
-\renewcommand{\cftfigaftersnum}{: }
-
-\renewcommand{\cfttabpresnum}{Table }
-\renewcommand{\cfttabnumwidth}{50pt}
-\renewcommand{\cfttabaftersnum}{: }
+\renewcommand*{\appendix}[2]{
+    \tocsection{Appendix #1 -- #2}
+    \renewcommand{\thesection}{#1}
+}

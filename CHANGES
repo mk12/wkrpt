@@ -5,3 +5,13 @@ v0.1
 - Created initial LaTeX template
 - Added Times New Roman support
 - Added IEEE biliography support
+
+v1.0
+- Use pdfLaTeX instead of XeLaTeX
+- Use Times replacement TeX Gyre Termes
+- Formatting changes to more closely match the sample work report "Design
+  Decisions for Implementing Backside Video in the SomeProduct"
+- Add commands to set Student ID, company name, etc., so that wkrpt.sty can do
+  more of the work on its own
+- Reorganize wkrpt.sty
+- Use more interesting fictional names
